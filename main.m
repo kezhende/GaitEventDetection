@@ -35,7 +35,7 @@ implement_type = 'fit';
 
 % Compute the gait events from the given 3-axis acceleration signal
 
-[HS_LF,TO_LF] = SK_gedAlgo(accX,accY,accZ,Fs,winSizeFactor,implement_type);
+[HS,TO] = SK_gedAlgo(accX,accY,accZ,Fs,winSizeFactor,implement_type);
                 
 
 

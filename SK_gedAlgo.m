@@ -89,11 +89,11 @@ gaitEvent = detectEvent(Wn,sLamda_n,m_local,vec_mu_e,implement_type);
 
 % % % Plot the signal with the detected HS and TO
 figure;
-plot(zscore(rAcc)); hold on;
-% plot(zscore(x_en),'r'); plot(zscore(x_cn),'k');
-plot(vec_HS,4*ones(length(vec_HS),1),'go');
-plot(vec_TO,4*ones(length(vec_TO),1),'k^');
+plot(rAcc); hold on;
+plot(vec_HS,40*ones(length(vec_HS),1),'go');
+plot(vec_TO,40*ones(length(vec_TO),1),'k^');
 legend('rAcc Signal','HS','TO');
-
+xlabel('Time [samples]');
+ylabel('Amplitude [m/s^2]');
 end
 
