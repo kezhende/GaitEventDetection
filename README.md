@@ -2,7 +2,7 @@
 ======
 The following is a MATLAB Library to detect gait events from 3-axis accelerometer signals collected during walking or running. The implemented algorithm has been published in (please remember to include an appropriate citation to acknowledge the use of library in all documents and papers that uses it):
 
->"Siddhartha Khandelwal; Nicholas Wickström, "**Gait Event Detection in Real-World Environment for Long-Term Applications: Incorporating Domain Knowledge into Time-Frequency Analysis**," in *IEEE Transactions on Neural Systems and Rehabilitation Engineering* , vol.PP, no.99, pp.1-1, 2016"
+>"Siddhartha Khandelwal; Nicholas Wickström, "**Gait Event Detection in Real-World Environment for Long-Term Applications: Incorporating Domain Knowledge into Time-Frequency Analysis**," in *IEEE Transactions on Neural Systems and Rehabilitation Engineering* , vol. 24, no. 12, pp.1363-1372, 2016"
 
 
 ![alt tag](http://islab.hh.se/mediawiki/images/4/4d/Figure_gaitEvents.png)
