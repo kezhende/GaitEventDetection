@@ -17,15 +17,14 @@ function [sLamda,mu_event,mu_cycle] = trackingProcedure(Fs,rAcc,Wn,scales,nSamp_
 % mu_event - gaussian mean of the event energies
 % mu_cycle - gaussian mean of the cycle energies
 
-plot_tracking = 0; 
+plot_tracking = 1; 
 if plot_tracking
     h1 = figure; 
 end
 %% A priori energy density spectrum estimate
 x = scales;
-wav_freq = scal2frq(1:max(scales),'morl',1/Fs);
-mu_er = find(wav_freq == 2);
-mu_cr = find(wav_freq == 1);
+mu_er = floor((centfrq('morl')*Fs)./2);
+mu_cr = floor((centfrq('morl')*Fs)./1);
 a_er = 1; 
 a_cr = 1;
 sigma_er = round((mu_cr-mu_er)/6); 
