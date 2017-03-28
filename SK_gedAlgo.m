@@ -35,7 +35,7 @@ else if nargin == 5
     end
 end
 %% Composite acceleration signal
-rAcc = sqrt(accX.^2 + accY.^2 + accZ.^2);
+rAcc = sqrt(accX(:).^2 + accY(:).^2 + accZ(:).^2);
 % figure; plot(rAcc);
 
 %% CWT 
