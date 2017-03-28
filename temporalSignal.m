@@ -45,9 +45,24 @@ lpFilt = designfilt('lowpassfir','PassbandFrequency',cutoffFreq/(Fs/2), ...
          'StopbandFrequency',(cutoffFreq+1)/(Fs/2),'PassbandRipple',0.5, ...
          'StopbandAttenuation',60,'DesignMethod','equiripple');
 %fvtool(lpFilt)
-filt_x_en = filtfilt(lpFilt,x_en);
-filt_x_cn = filtfilt(lpFilt,x_cn);
 
+% Note: The length of the input x must be more than three times the filter  
+% order
+if numel(x_en) > 3*filtord(lpFilt)
+    filt_x_en = filtfilt(lpFilt,x_en);
+    filt_x_cn = filtfilt(lpFilt,x_cn);    
+else
+    % Make copies of the signal
+    nCopies = round((3*filtord(lpFilt))/numel(x_en)) + 1;
+    cpy_x_en = repmat(x_en,nCopies,1);
+    cpy_x_cn = repmat(x_cn,nCopies,1);
+    % Filter the copies of the original signals
+    filt_copy_x_en = filtfilt(lpFilt,cpy_x_en);
+    filt_copy_x_cn = filtfilt(lpFilt,cpy_x_cn);
+    % Extract the original signal
+    filt_x_en = filt_copy_x_en(1:numel(x_en));
+    filt_x_cn = filt_copy_x_cn(1:numel(x_cn));
+end
 
 %% Plots
 
