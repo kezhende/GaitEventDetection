@@ -2,11 +2,15 @@
 % Copyright (c) <2016>, <Siddhartha Khandelwal>
 
 % Publication to cite: 
-% Siddhartha Khandelwal, Nicholas Wickström (2016). 
+% Siddhartha Khandelwal, Nicholas Wickstr?m (2016). 
 % Gait Event Detection in Real-World Environment for Long-Term Applications : 
 % Incorporating Domain Knowledge into Time-Frequency Analysis. 
 % IEEE transactions on neural systems and rehabilitation engineering.
 %% Example main file
+clc
+clear all
+
+% Load the signal
 
 load accX 
 load accY 
@@ -31,7 +35,7 @@ load accZ
 
 Fs = 128; 
 winSizeFactor = 3;
-implement_type = 'fit';
+implement_type = 'fast';
 
 % Compute the gait events from the given 3-axis acceleration signal
 

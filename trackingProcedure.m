@@ -17,7 +17,7 @@ function [sLamda,mu_event,mu_cycle] = trackingProcedure(Fs,rAcc,Wn,scales,nSamp_
 % mu_event - gaussian mean of the event energies
 % mu_cycle - gaussian mean of the cycle energies
 
-plot_tracking = 1; 
+plot_tracking = 0; 
 if plot_tracking
     h1 = figure; 
 end
@@ -34,8 +34,9 @@ Es = a_er.*exp(-((x-mu_er)/sigma_er).^2) + a_cr.*exp(-((x-mu_cr)/sigma_cr).^2);
 %% Window parameters
 
 if numel(rAcc) <= nSamp_win
-    disp('The signal is too short. Enter a longer signal with more samples.')
-    return;
+    fprintf('The signal is too short. \nEnter a longer signal with more samples.\n')
+    sLamda = []; mu_event = []; mu_cycle = [];
+    return
 end
 
 % Sample nos. for overlapping windows

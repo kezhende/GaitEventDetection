@@ -27,6 +27,9 @@ function [vec_HS,vec_TO] = SK_gedAlgo(accX,accY,accZ,Fs,winSizeFactor,implement_
 %
 % HS - vector containing sample no. of Heel Strike events
 % TO - vector containing sample no. of Toe Off events
+%% Initialize output
+vec_HS = []; vec_TO = [];
+
 %% Input checks
 if nargin < 5
     error('Not enough input arguments');
@@ -50,7 +53,6 @@ overlap = (1 - 50/100);
 [sLamda,mu_e,mu_c] = trackingProcedure(Fs,rAcc,Wn,scales,nSamp_win,overlap);
 % When the signal is too short
 if isempty(sLamda)
-    vec_HS = []; vec_TO = [];
     return
 end
 %% Obtaining temporal signals 
